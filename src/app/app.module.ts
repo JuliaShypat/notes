@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NotesComponent } from './notes/notes.component';
@@ -10,6 +10,7 @@ import { NoteComponent } from './notes/note/note.component';
 import { NotesControlsComponent } from './notes/notes-controls/notes-controls.component';
 import { NoteFormComponent } from './notes/note-form/note-form.component';
 import { NoteFullTextComponent } from './notes/note-full-text/note-full-text.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,14 @@ import { NoteFullTextComponent } from './notes/note-full-text/note-full-text.com
     NoteFullTextComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      { path: '', component: LoginComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'notes', component: NotesComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
