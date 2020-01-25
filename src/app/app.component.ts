@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'notes';
+
+  name(params: number) {
+    return params * 2;
+  }
 }
